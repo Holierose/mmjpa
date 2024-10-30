@@ -15,4 +15,5 @@ Werkzeug==3.0.6
 gunicorn
 mecab-python3
 Flask
+unidic-lite
 

@@ -33,7 +33,7 @@ def identify_word_type(features):
         return "Không xác định"
 
 def analyze_sentence(sentence):
-    mecab = MeCab.Tagger("-d /usr/lib/x86_64-linux-gnu/mecab/dic/ipadic")
+    mecab = MeCab.Tagger("-r /dev/null -d /usr/lib/x86_64-linux-gnu/mecab/dic/ipadic")
     parsed_sentence = mecab.parse(sentence).strip()
 
     morphemes = []
