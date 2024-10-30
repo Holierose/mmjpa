@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Japanese Sentence Analyzer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            margin: 0 auto;
+            width: 50%;
+        }
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            width: 80%;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Japanese Sentence Analyzer</h1>
+
+    <!-- Form nhập câu tiếng Nhật -->
+    <form method="POST">
+        <label for="sentence">Nhập câu tiếng Nhật:</label><br><br>
+        <textarea id="sentence" name="sentence" rows="4"></textarea><br><br>
+        <input type="submit" value="Phân tích câu">
+    </form>
+
+    <!-- Hiển thị kết quả phân tích câu -->
+    {% if result_sentence %}
+    <h2>Kết quả phân tích câu:</h2>
+    <table>
+        <tr>
+            {% for item in result_sentence['morphemes'] %}
+                <th>{{ item }}</th>
+            {% endfor %}
+        </tr>
+        <tr>
+            {% for item in result_sentence['morpheme_types'] %}
+                <td>{{ item }}</td>
+            {% endfor %}
+        </tr>
+    </table>
+
+    <h3>延べ語数 (Tổng số từ, bao gồm từ lặp lại): {{ result_sentence['total_words'] }}</h3>
+    <h3>異なり語数 (Số từ khác nhau, không tính từ lặp lại): {{ result_sentence['unique_words'] }}</h3>
+    {% endif %}
+</body>
+</html>
