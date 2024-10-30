@@ -14,7 +14,7 @@ def identify_morpheme_type(surface, features):
     elif "名詞" in features:  # Danh từ
         return "Hình vị tự do"
     else:
-        return "Hình vị hạn chế"
+        return "Hình vị hạn chế"y
 
 # Hàm xác định loại từ (和語, 漢語, 外来語, 混種語, オノマトペ)
 def identify_word_type(features):
@@ -70,4 +70,5 @@ def index():
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=int(os.environ.get("PORT", 5000)))
+
 
