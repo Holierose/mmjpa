@@ -13,3 +13,6 @@ pyinstaller-hooks-contrib==2024.9
 setuptools==75.3.0
 Werkzeug==3.0.6
 gunicorn
+mecab-python3
+Flask
+

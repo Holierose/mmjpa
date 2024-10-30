@@ -1,6 +1,7 @@
 from flask import Flask, request, render_template
 import MeCab
 import re
+import os
 
 app = Flask(__name__)
 
@@ -33,7 +34,9 @@ def identify_word_type(features):
 
 # Hàm phân tích câu
 def analyze_sentence(sentence):
-    mecab = MeCab.Tagger("-r /opt/homebrew/etc/mecabrc -d /opt/homebrew/lib/mecab/dic/ipadic")
+    # Sử dụng đường dẫn MeCab trên Linux của Render
+    mecab = MeCab.Tagger("-d /usr/lib/x86_64-linux-gnu/mecab/dic/ipadic")
+    
     parsed_sentence = mecab.parse(sentence).strip()
 
     morphemes = []
@@ -70,5 +73,3 @@ def index():
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=int(os.environ.get("PORT", 5000)))
-
-
