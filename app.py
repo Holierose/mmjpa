@@ -32,9 +32,8 @@ def identify_word_type(features):
     else:
         return "Không xác định"
 
-# Hàm phân tích câu
 def analyze_sentence(sentence):
-    # Sử dụng đường dẫn MeCab trên Linux của Render
+    # Chỉ chỉ định đường dẫn đến từ điển, không cần chỉ định mecabrc
     mecab = MeCab.Tagger("-d /usr/lib/x86_64-linux-gnu/mecab/dic/ipadic")
     
     parsed_sentence = mecab.parse(sentence).strip()
