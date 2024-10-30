@@ -2,6 +2,7 @@ from flask import Flask, request, render_template
 import MeCab
 import re
 import os
+import unidic
 
 app = Flask(__name__)
 
@@ -33,7 +34,7 @@ def identify_word_type(features):
         return "Không xác định"
 
 def analyze_sentence(sentence):
-    mecab = MeCab.Tagger("-r /dev/null -d /usr/lib/x86_64-linux-gnu/mecab/dic/ipadic")
+    mecab = MeCab.Tagger("-r /dev/null -d {}".format(unidic.DICDIR))
     parsed_sentence = mecab.parse(sentence).strip()
 
     morphemes = []
