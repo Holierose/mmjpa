@@ -1,2 +1,3 @@
-#!/usr/bin/env bash
-apt-get update && apt-get install -y mecab mecab-ipadic-utf8 libmecab-dev mecab-ipadic mecab-ipadic-utf8
+#!/bin/bash
+apt-get update
+apt-get install -y mecab libmecab-dev mecab-ipadic-utf8

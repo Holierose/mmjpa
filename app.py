@@ -33,9 +33,7 @@ def identify_word_type(features):
         return "Không xác định"
 
 def analyze_sentence(sentence):
-    # Chỉ chỉ định đường dẫn đến từ điển, không cần chỉ định mecabrc
     mecab = MeCab.Tagger("-d /usr/lib/x86_64-linux-gnu/mecab/dic/ipadic")
-    
     parsed_sentence = mecab.parse(sentence).strip()
 
     morphemes = []
@@ -58,6 +56,7 @@ def analyze_sentence(sentence):
         'total_words': total_words,
         'unique_words': unique_words
     }
+
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
